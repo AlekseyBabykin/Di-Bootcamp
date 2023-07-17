@@ -7,11 +7,21 @@ word_text_before = ""
 word_text = ""
 # word_text = input("write word without A\n")s
 while True:
+    word_text = input("write word without A\n")
+    if "a" in word_text.lower():
+        print('"you write word since "a"')
+        continue
+        
+
+    else:
+        if len(word_text_before) < len(word_text):
+            print("congratulations message")
+            word_text_before = word_text
+        
+        
     # word_text = input("write word without A\n")
     if word_text == "0":
         break 
-    if len(word_text_before) < len(word_text):
-        print("congratulations message")
-        word_text_before = word_text
+
    
-    word_text = input("write word without A\n")
+    
