@@ -55,7 +55,7 @@
 # print(brand["number_stores"])  
 # print(brand)
 
-# # Exercise 4 : Disney Characters
+# Exercise 4 : Disney Characters
 # disney_users_A = {}
 # disney_users_B = {}
 # disney_users_C = {}
