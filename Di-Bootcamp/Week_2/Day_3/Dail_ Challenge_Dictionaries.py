@@ -20,16 +20,19 @@
 # Sort the list in alphabetical order.
 # Return “Nothing” if you can’t afford anything from the store.
 
-# items_purchase = {
-#   "Water": 1,
-#   "Bread": 3,
-#   "TV": 1000,
-#   "Fertilizer": 20
-# }
-# wallet = 300
-# you_can = []
-# for i in range(len(items_purchase.items())):
-#     if wallet - list(items_purchase.values())[i] > 0:
-#         wallet -= list(items_purchase.values())[i]
-#         you_can.append(list(items_purchase.keys())[i])
-# print(you_can)         
+items_purchase = {
+  "Water": 1,
+  "Bread": 3,
+  "TV": 1000,
+  "Fertilizer": 20
+}
+wallet = 300
+you_can = []
+for i in range(len(items_purchase.items())):
+    if wallet - list(items_purchase.values())[i] > 0:
+        wallet -= list(items_purchase.values())[i]
+        you_can.append(list(items_purchase.keys())[i])
+   
+           
+print(you_can)
+         
