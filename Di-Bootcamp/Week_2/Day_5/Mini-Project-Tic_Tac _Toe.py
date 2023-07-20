@@ -21,19 +21,21 @@ def player_input():
     first_player_1 = int(input("write row\n"))         
     print("the first player's move")
     first_player_2 = int(input("write colum\n"))
-    cordinate1 = step(first_player_1,first_player_2)
+    cordinate1 = convert_input(first_player_1,first_player_2)
     display[cordinate1[0]][cordinate1[1]] = "x"
     display_board() 
     print("the second player's move")
     second_player_1 = int(input("write row\n"))
     print("the second player's move") 
     second_player_2 = int(input("write colum\n"))
-    cordinate2 = step(second_player_1,second_player_2) 
+    cordinate2 = convert_input(second_player_1,second_player_2) 
     display[cordinate2[0]][cordinate2[1]] = "y"     
     display_board()
         
 
-def step(x,y):
+def convert_input(x,y):
+    all_values = []
+    values_now = []
     if x == 3:
         x = 5
     if y == 3:
@@ -43,10 +45,27 @@ def step(x,y):
     if y == 2:
         y = 8
     if x == 1:
-        x = 1;
+        x = 1
     if y == 1:
-        y = 3         
-    return [x,y]           
+        y = 3 
+    values_now.append(x)
+    values_now.append(y)
+    all_values.append(values_now)
+    if all_values[0] > 0:
+        for i in all_values: 
+            if values_now in all_values:
+                x = int(input("place busy i need new row\n"))
+                y = int(input("place busy i need new colum\n"))
+                values_now[0] = x
+                values_now[1] = y         
+                all_values.append(values_now)
+                return [values_now[0],values_now[1]]
+            else:
+                all_values.append(values_now)              
+                return [values_now[0],values_now[1]]
+    # busy_all.append(values_now) 
+    # return [values_now[0],values_now[1]]                      
+               
 
 
 
@@ -59,7 +78,9 @@ def check_win():
         
 
 def play():
+    count = 0
     while True:
+        count += 1
         display_board()
         player_input()
         check_win()
@@ -71,7 +92,8 @@ def play():
             print("player 2 you win!")
             print("game over")
             break
-            
+        if count >9:
+            print("the game ends in a tie")   
  
     
 play()    
