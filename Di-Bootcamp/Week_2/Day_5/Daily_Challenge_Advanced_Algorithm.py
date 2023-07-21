@@ -9,13 +9,15 @@ for i in range(len(list_of_numbers)):
     if list_of_numbers[i] <=  target_number:
         a.append(list_of_numbers[i])
 if len(a) % 2 == 0:
-    length_range = len(a)/2
+    length_range = int(len(a)/2)
 else:
-    length_range = len(a)/2 + 1
+    length_range = int(len(a)/2) + 1
               
-for i in range(int(length_range)):
-    for j in range(int(length_range)):
+for i in range(int(length_range/2)):
+    for j in range(int(length_range),int(length_range/2),-1):
         if a[i] + a[j] == target_number:
+            a.pop(i)
+            a.pop(j)
             count +=1
 print(count)
           
