@@ -1,0 +1,1 @@
+ramat_gan_safari.sell_animal('Cat')
