@@ -5,7 +5,13 @@ class Employee :
         self.age = age
         self.job = job
         self.salary = salary
-
+    
+    def __gt__(self,other):
+        if self.salary > other.salary:
+            return self.salary    
+        else:
+            return other.salary
+        
     def get_fullname(self) :
         return f"{self.firstname} {self.lastname}"
     
@@ -41,3 +47,6 @@ class Developer(Employee) :
 
     def get_promotion(self, promotion_amount):
         self.salary *= promotion_amount
+
+    
+        
