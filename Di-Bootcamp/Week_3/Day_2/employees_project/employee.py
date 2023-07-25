@@ -12,6 +12,12 @@ class Employee :
         else:
             return other.salary
         
+    def __add__(self,other):
+        return self.salary + other.salary
+    
+    def __str__(self) -> str:
+        pass
+          
     def get_fullname(self) :
         return f"{self.firstname} {self.lastname}"
     
@@ -24,6 +30,11 @@ class Employee :
     def show_info(self) :
         print(f"{self.get_fullname()} - age : {self.age} - job : {self.job} - salary : {self.salary}")
 
+    @classmethod
+    def create_best_employee(cls,fname, lname, age, job, salary) :
+        if salary > 30000:
+            return cls
+        
 
 class Developer(Employee) :
     def __init__(self, fname, lname, age, job="Developer", salary=15000) :
