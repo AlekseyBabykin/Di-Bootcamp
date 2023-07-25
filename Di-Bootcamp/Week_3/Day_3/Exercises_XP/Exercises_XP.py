@@ -113,7 +113,7 @@ from faker import Faker
 # Exercise 8 : Faker Module
 
 fake = Faker()
-print(fake.name())
+
 list_test = [{},{},{}]
 
 def faker_module(list_test):
