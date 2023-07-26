@@ -1,10 +1,11 @@
 class Employee :
-    def __init__(self, fname, lname, age, job, salary):
+    def __init__(self, fname, lname, age, job, salary, address):
         self.firstname = fname
         self.lastname = lname
         self.age = age
         self.job = job
         self.salary = salary
+        self.__address = address
     
     def __gt__(self,other):
         if self.salary > other.salary:
@@ -31,10 +32,23 @@ class Employee :
         print(f"{self.get_fullname()} - age : {self.age} - job : {self.job} - salary : {self.salary}")
 
     @classmethod
-    def create_best_employee(cls,fname, lname, age, job, salary) :
+    # def create_best_employee(cls,fname, lname, age, job, salary) :
+    def create_best_employee(cls,fname, lname, age, job, salary, adress) :
         if salary > 30000:
-            return cls
-        
+            return cls(fname, lname, age, job, salary, adress)
+    
+    @property    
+    def address(self):
+        return self.__address
+    
+    @address.setter  
+    def address(self,address):
+        if self.age > 30:
+            self.__address = address
+            
+    # def __str__(self) -> str:
+    #     return self   
+                
 
 class Developer(Employee) :
     def __init__(self, fname, lname, age, job="Developer", salary=15000) :
@@ -60,4 +74,6 @@ class Developer(Employee) :
         self.salary *= promotion_amount
 
     
-        
+a = Employee("mark","skjfjs",35,"dev",10000, "Piter")        
+a.address = "Moscow" 
+print(a.address)
