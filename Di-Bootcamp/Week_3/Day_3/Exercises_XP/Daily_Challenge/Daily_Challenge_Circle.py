@@ -1,11 +1,17 @@
 from cmath import pi
+import turtle
 
 
 
 class Circle:
     list_full = []
-    def __init__(self, radius) -> None:
-        self.radius = radius
+    def __init__(self, radius = None, diametr = 0) -> None:
+        if radius is None and diametr is None:
+            print("not value")
+        if radius is not None:    
+            self.radius = radius
+        else:
+            self.radius = diametr/2    
         Circle.list_full.append(self.radius)  
     
     def circles_area(self):
@@ -26,14 +32,11 @@ class Circle:
     def __eq__(self,other):
         return self.circles_area() == other.circles_area()
     
-    @classmethod
-    def add_circle_by_radius(cls, radius):
-        return cls(radius)
-
-    @classmethod
-    def add_circle_by_diameter(cls, diameter):
-        radius = diameter / 2
-        return cls(radius)
+    def drow():
+        t = turtle.Turtle()
+        for i in Circle.list_full:
+            t.circle(i)
+        
 
 circle_1 = Circle(5)
 
@@ -46,6 +49,6 @@ circle_3 = Circle(25)
 circle_3
 print(circle_3 == circle_1)
 print(sorted(Circle.list_full))
-c= Circle()
+Circle.drow()
 
         
