@@ -27,20 +27,20 @@ class Game():
         return choice_komputer
     
     def get_game_result(self,user_item, computer_item):
-        print("in here", user_item, computer_item)  
+        # print("in here", user_item, computer_item)  
         # user_item = self.get_user_item()
         # computer_item = self.get_computer_item()
         if user_item == computer_item:
             self.rezult["drow"] += 1 
-            print("in draw", self.rezult)  
+            # print("in draw", self.rezult)  
             # return "drow"  
         elif (user_item == "rock" and computer_item == "scissors") or (user_item == "paper" and computer_item == "rock"):
             self.rezult["win"] += 1 
-            print("in win", self.rezult)  
+            # print("in win", self.rezult)  
             # return "win"
         else:
             self.rezult["lose"] += 1
-            print("in lose", self.rezult)  
+            # print("in lose", self.rezult)  
             # return "lose"
         # print(self.rezult)  
         return self.rezult
