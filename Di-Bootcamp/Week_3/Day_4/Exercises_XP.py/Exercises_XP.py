@@ -45,5 +45,5 @@ data = json.loads(sampleJson)
 data["company"]["employee"]["birth_date"] = "03.08.1990"
 print(data)
 print(data["company"]["employee"]["payable"]["salary"])
-with open("json_file", 'w') as file_obj:
+with open("hjsjdjdjh", 'w') as file_obj:
     json.dump(data, file_obj)

@@ -1,7 +1,7 @@
 from collections import Counter
 import string
 from stop_words import get_stop_words
-from nltk.corpus import stopwords
+
 
 a = "A good book would sometimes cost as much as a good house."
 
