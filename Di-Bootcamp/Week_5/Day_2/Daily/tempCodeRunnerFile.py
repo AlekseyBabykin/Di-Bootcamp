@@ -1,0 +1,1 @@
+print(starbucks.sort_values(["Beverage"],ascending=False).groupby('Beverage_category').head(5))
