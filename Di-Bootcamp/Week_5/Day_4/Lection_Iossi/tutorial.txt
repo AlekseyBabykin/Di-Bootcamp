@@ -1,0 +1,105 @@
+Django is a widely used (millions of developers) library for building web applications.
+
+authentications
+security management 
+database interaction
+data passing from one part to another
+
+Client - user
+Server - the backend/logic
+
+Django -> Django REST (API part of Django)
+
+Django REST <-> React 
+
+API - Application Programming Interface. 
+
+Preparation
+-----------
+0. Make sure your terminal is in the working directory 
+
+1. Installing django 
+
+    >> pip install django
+
+2. Creating a new project (or start a new web application)
+
+    >> django-admin startproject mysite
+
+    >> cd mysite (Where you are going to be 99.9%)
+
+    >> python manage.py runserver
+
+3. Creating a new app 
+
+    >> python manage.py startapp polls 
+
+
+4. Creting views
+
+    BASIC VIEW TEMPLATE:
+
+        def some_view(request):
+            ...
+
+
+>> python manage.py createsuperuser
+
+5. Creating models
+    ... 
+
+
+
+# migration - instruction for the database about changes (adding a table, changing a column etc.)
+
+# 1) python manage.py makemigrations <- create instruction about changes
+# 2) python manage.py migrate <- applying the migrations/instructions
+
+django-admin startproject <name>
+
+# 'python manage.py ...' commands
+
+startapp <name> - creates an app inside the project
+runserver
+makemigations
+migrate
+createsuperuser - creates an admin user that has all permissions
+shell ( exit() to quit )
+
+# shell commands
+
+>> from polls.models import Post
+
+new_post = Post(author='Ben', title='First Post', text='Some long text here...')
+new_post.save()
+
+Post.objects.get(id=1) <- get one object (where id is 1)
+
+all_posts = Post.objects.all() <- get a queryset with all of the Post objects in the database
+all_posts.filter(author='Ben') <- get a queryset with all posts of Ben
+all_posts.order_by("author") <- get a queryset with all posts ordered by the author field
+
+
+Creating virtual environment
+1) python -m venv <name>
+
+2) activate virtual environment
+    
+    for windows users:
+    (recommend using CMD)
+    >> venv/Scripts/activate
+    >> venv/Scripts/activate.bat
+    >> venv/Scripts/activate.ps1
+
+    for mac users:
+    >> source venv/bin/activate
+
+3) create/update the requirements.txt 
+
+    >> pip freeze requirements.txt
+
+4) Create .gitignore file and ignore the virtual environment folder
+
+5) Deactivate the virtual environment 
+
+    >> deactivate
