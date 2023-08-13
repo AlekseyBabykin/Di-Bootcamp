@@ -22,9 +22,10 @@ import numpy as np
 # 4.Array splitting - Reshape the data matrix into a vector 
 # (Hint: use np.ravel) and split this array into five equal-sized sub-arrays.
 # data = np.array(np.random.randint(1, 100, size=25)).reshape(5,5)
-# c = np.array_split(data,5)
+
 # data_ravel = np.ravel(data)
-# print(data_ravel.reshape(5,-1))
+# c = data_ravel.reshape(5,-1)
+# print(c)
 
 # 5.Dot product - Create two vectors of size 5 with any values. Compute the dot product of the two vectors*.
 

@@ -78,10 +78,4 @@ print(np.finfo(np.float64))
 # print(a)
 
 # 18.Given an array C that is a bincount*, how to produce an array A such that np.bincount(A) == C? Use np.repeat.
-
-# c = [5]
-# a = np.repeat(c,c)
-# print(a)
-# print(np.bincount(a))
-# print(c)
-# print(np.bincount(a) == c)
+# np.repeat(np.arange(len(C)), C) 
