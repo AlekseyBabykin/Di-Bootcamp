@@ -15,8 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
+from rent.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('rental/', RentalList.as_view()),
+    path('rental/<int:pk>', RentalDetails.as_view()),
+    path('customer/', CustomerList.as_view(), name='customer'),
+    path('customer/add', CustomerListadding.as_view()),
+    path('vehicle/', VehicleList.as_view()),
+    path('vehicle/<int:pk>', VehicleListdetail.as_view()),
+    path('vehicle/add', VehicleListdetailadd.as_view()),
+    path('station/', RentalStationList.as_view()),
+    path('station/add', RentalStationListadd.as_view()),
+    path('station/<int:station_id>', RentalStationid.as_view()),
+    path('station/distribution', DistributionStationList.as_view()),
+    path('station/distribution', DistributionStationList.as_view()),
+    
+    path('stats/monthly', RentalStat.as_view()),
+    path('stats/popular_station', Popular_Station.as_view()),
+       path('stats/popular_vehicle_type', MostRentedType.as_view()),
 ]

@@ -8,34 +8,55 @@ class Customer(models.Model):
     phone_number = models.CharField(max_length=15)
     address = models.ForeignKey('Address', on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f"{self.last_name}, {self.first_name}"
+    
     
 class Vehicle(models.Model):
     vehicle_type = models.ForeignKey('Vehicle_Type', on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
     real_cost = models.DecimalField(max_digits=10, decimal_places=2)
     size = models.ForeignKey('Vehicle_Size', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"id:{self.id}, {self.vehicle_type}, {self.real_cost}, {self.date_created}"
       
 class Vehicle_Type(models.Model):
     name = models.CharField(max_length=50, unique=True)
     
+    def __str__(self):
+        return f"{self.id}, {self.name}"
+    
 class Vehicle_Size(models.Model):
-    name = models.CharField(max_length=50, unique=True)            
+    name = models.CharField(max_length=50, unique=True)
+    
+    def __str__(self):
+        return f"{self.id}, {self.name}"            
     
 class Rental(models.Model):
     rental_date = models.DateField(auto_now_add=True)
     return_date = models.DateField(null=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)    
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE) 
+    
+    def __str__(self):
+        return f"{self.rental_date}, {self.return_date}, {self.customer} {self.vehicle}"   
 
 class Rental_Rate(models.Model):
     daily_rate = models.DecimalField(max_digits=5, decimal_places=2)
     vehicle_type = models.ForeignKey(Vehicle_Type, on_delete=models.CASCADE)
     vehicle_size = models.ForeignKey(Vehicle_Size, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.daily_rate}, {self.vehicle_size}, {self.vehicle_type}"
 
 class RentalStation(models.Model):
     name = models.CharField(max_length=100)
     capacity = models.IntegerField(int)
     address = models.ForeignKey('Address', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.id}, {self.name}, {self.address}"
 
 class Address(models.Model):
     address = models.CharField(max_length=100)
@@ -44,9 +65,16 @@ class Address(models.Model):
     country = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=10)
     
+    def __str__(self):
+        return f"{self.id}, {self.address}"
+    
 class VehicleAtRentalStation(models.Model):
     arrival_date = models.DateField()
     departure_date = models.DateField(null=True,blank=True)
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    rental_station = models.ForeignKey('RentalStation', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.vehicle}, {self.arrival_date}, {self.departure_date}"
         
                 
