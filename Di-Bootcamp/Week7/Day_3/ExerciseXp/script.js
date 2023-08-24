@@ -169,6 +169,7 @@ function makeJuice(size_drink) {
     div.innerText = `The client wants a ${size_drink} juice, containing ${ingredients.join(
       ", "
     )}`;
+    div.style.color = "yellow";
     // console.log(juiceSentence);
   }
   displayJuice();
