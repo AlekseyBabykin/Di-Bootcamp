@@ -8,14 +8,14 @@
 //   });
 // }
 
-// function sortWords(param) {
-//   return new Promise((resolve, reject) => {
-//     if (param.length > 4) {
-//       resolve(param.sort());
-//     }
-//     reject("less < 4");
-//   });
-// }
+function sortWords(param) {
+  return new Promise((resolve, reject) => {
+    if (param.length > 4) {
+      resolve(param.toSorted());
+    }
+    reject("less < 4");
+  });
+}
 // //in this example, the catch method is executed
 // makeAllCaps([1, "pear", "banana"])
 //   .then((arr) => sortWords(arr))

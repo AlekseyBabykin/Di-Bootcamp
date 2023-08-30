@@ -20,24 +20,24 @@
 
 //   🌟 Exercise 2 : Promises
 
-// function someFunc(param) {
-//   const myPromise = new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       if (typeof param === "string") {
-//         resolve("this is string, succuess");
-//       } else {
-//         reject("is not seccess");
-//       }
-//     }, 4000);
-//   });
-//   return myPromise;
-// }
-// someFunc("fkjgjdjgjgj")
-//   .then((res) => console.log(res))
-//   .catch((error) => console.log("balalalla", error));
-// someFunc(32323445)
-//   .then((res) => console.log(res))
-//   .catch((error) => console.log("balalalla", error));
+function someFunc(param) {
+  const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (typeof param === "string") {
+        resolve("this is string, succuess");
+      } else {
+        reject("is not seccess");
+      }
+    }, 4000);
+  });
+  return myPromise;
+}
+someFunc("fkjgjdjgjgj")
+  .then((res) => console.log(res))
+  .catch((error) => console.log("balalalla", error));
+someFunc(32323445)
+  .then((res) => console.log(res))
+  .catch((error) => console.log("balalalla", error));
 
 // 🌟 Exercise 3 : Resolve & Reject
 // const secondPromyse = Promise.resolve(3);
