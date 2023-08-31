@@ -1,0 +1,41 @@
+body {
+  display: flex;
+
+  justify-content: center;
+  background-image: url("https://i.pinimg.com/originals/11/d7/4e/11d74e3be18400681ced78fc809430df.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#starwars {
+  color: yellow;
+}
+#result {
+  border-style: solid;
+  border-width: medium;
+  height: 200px;
+  width: 250px;
+  border-color: chartreuse;
+  color: rgb(194, 201, 181);
+  padding-top: 10px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50px;
+}
+/* #starwars {
+  text-align: center;
+} */
+#btn {
+  border-radius: 30px;
+}
