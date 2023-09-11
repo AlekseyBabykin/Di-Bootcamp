@@ -8,11 +8,11 @@ const _getAllUsers = () => {
 //   return db("users").select("id", "email", "password").where({ id });
 // };
 
-const _insertUsers = ({ email, password }) => {
+const _insertUsers = (email, password) => {
   return db("users").insert({ email, password }, ["id", "email", "password"]);
 };
 
-const _updateUsers = ({ email, password }, id) => {
+const _updateUsers = (email, password, id) => {
   return db("users")
     .update({ email, password })
     .where({ id })

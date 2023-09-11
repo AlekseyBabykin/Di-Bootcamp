@@ -13,7 +13,7 @@ const {
   updateUser,
 } = require("../controllers/controller.js");
 
-router.post("/register", regCheck, postReg);
+router.post("/register", postReg);
 
 router.post("/login", usernameExists, postLogin);
 
@@ -21,6 +21,6 @@ router.get("/users", allUsers);
 
 router.get("/users/:id", getUser);
 
-router.put("/users/:id", usernameExists, updateUser);
+router.put("/users/:id", updateUser);
 
 module.exports = { router };

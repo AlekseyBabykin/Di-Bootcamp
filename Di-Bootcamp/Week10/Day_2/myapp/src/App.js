@@ -1,18 +1,21 @@
 import logo from "./logo.svg";
 import Hello from "./components/Hello";
+import users from "./data.json";
+import User from "./components/User";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
+import Button from "@mui/material/Button";
 
 function App() {
-  const users = [
-    { id: 1, name: "Jhon", email: "jjj@mail.com" },
-    { id: 2, name: "Marry", email: "lll@mail.com" },
-    { id: 3, name: "Den", email: "hhhh@mail.com" },
-  ];
+  console.log("uswer=>", users);
   return (
     <div className="App">
       <header className="App-header">
+        <div>
+          <Button variant="contained">Contained</Button>
+        </div>
         {users.map((item) => {
-          return <Hello name={item.name} email={item.email} />;
+          return <User info={item} key={uuidv4()} />;
         })}
       </header>
     </div>

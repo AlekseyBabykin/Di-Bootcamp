@@ -49,7 +49,7 @@ const postReg = (req, res) => {
 
 const postLogin = (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password } = renpq.body;
     let usersData = readData();
     if (usersData.find((el) => el.username == username) == -1) {
       return res.status(404).json({ msg: `${username} doesn^t exist` });

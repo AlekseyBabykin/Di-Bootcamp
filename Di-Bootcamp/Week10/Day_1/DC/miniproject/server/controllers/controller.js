@@ -7,24 +7,25 @@ const {
   _updateUsers,
 } = require("../models/users.models.js");
 
-const postReg = (req, res) => {
+const postReg = async (req, res) => {
   try {
-    const { id, email, password } = req.body;
-    let usersData = _getAllUsers();
+    const { email, password } = req.body;
+    // let usersData = _getAllUsers();
     const saltRounds = 10;
 
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-      bcrypt.hash(password, salt, function (err, hash) {
-        const newUser = {
-          id: id,
-          email: email,
-          password: hash,
-        };
-        usersData.push(newUser);
-        _insertUsers(usersData);
-        res.status(200).json({ msg: `${username} successfull created` });
-      });
-    });
+    // bcrypt.genSalt(saltRounds, function (err, salt) {
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    // bcrypt.hash(password, salt, function (err, hash) {
+    const newUser = {
+      // id: id,
+      email,
+      password: hashedPassword,
+    };
+    // usersData.push(newUser);
+    await _insertUsers(email, hashedPassword);
+    console.log(newUser);
+    res.status(200).json({ msg: "register" });
+    // });
   } catch (err) {
     console.error(err);
   }
@@ -50,19 +51,19 @@ const postLogin = (req, res) => {
   }
 };
 
-const allUsers = (req, res) => {
+const allUsers = async (req, res) => {
   try {
-    const usersData = _getAllUsers;
+    const usersData = await _getAllUsers();
     res.status(200).json(usersData);
   } catch (err) {
     console.error(err);
   }
 };
 
-const getUser = (req, res) => {
+const getUser = async (req, res) => {
   try {
     const id = req.params.id;
-    const usersData = _getAllUsers;
+    const usersData = await _getAllUsers();
     const user = usersData.find((el) => el.id == id);
     if (user) {
       res.status(200).json(user);
@@ -74,19 +75,19 @@ const getUser = (req, res) => {
   }
 };
 
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const id = req.params.id;
     const { email, password } = req.body;
-    const usersData = _getAllUsers();
-    const userIndex = usersData.findIndex((el) => el.id == id);
-    usersData[userIndex] = {
-      ...usersData[userIndex],
+    // const usersData = await _getAllUsers();
+    // const userIndex = usersData.findIndex((el) => el.id == id);
+    const newUser = {
+      id,
       email,
       password,
     };
-    _updateUsers(usersData);
-    res.status(200).json(usersData);
+    await _updateUsers(email, password, id);
+    res.status(200).json(newUser);
   } catch (err) {
     console.error(err);
   }
