@@ -9,6 +9,7 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controllers/products.controller.js");
+const { verifyToken } = require("../middlewares/verify.token.js");
 
 const p_router = express.Router();
 

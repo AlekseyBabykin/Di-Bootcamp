@@ -4,13 +4,14 @@ const cors = require("cors");
 const { auth } = require("./middlewares/utils.js");
 const { p_router } = require("./routes/products.router.js");
 const { u_router } = require("./routes/users.router.js");
+const cookieParser = require("cookie-parser");
 
 dotenv.config();
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(cookieParser());
 app.use(cors());
 // app.use(logger);
 // app.use("/api/users", auth);

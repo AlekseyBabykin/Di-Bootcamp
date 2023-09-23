@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { emojis } = require("./data.js");
+const { fiveRandomEmj } = require("./data.js");
 
 const app = express();
 app.use(express.json());
@@ -9,8 +9,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/", (req, res) => {
-  console.log(emojis);
-  res.json(emojis);
+  res.json(fiveRandomEmj);
+});
+app.post("/", (req, res) => {
+  console.log(request.body);
 });
 
 // app.post("/check", (req, res) => {
